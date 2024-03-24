@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sample Test Run" parallel="">
+    <test name="Does Google still show cats if searched for those?">
+        <classes>
+            <class name="StandardTests.TestCatsPhotos"/>
+            <class name="StandardTests.TestCatsPhotos2"/>
+        </classes>
+    </test>
+
+</suite>
