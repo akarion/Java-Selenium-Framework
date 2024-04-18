@@ -38,7 +38,8 @@ public class TestCatsPhotos {
     public void testAcceptCookies() throws InterruptedException {
 
         driver.get("https://www.google.com");
-        LandingPage.acceptCookies(true);
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.acceptCookies(true);
 
     }
 
@@ -59,10 +60,11 @@ public class TestCatsPhotos {
 
     @Test(priority = 4)
     public void checkTopPhotosResultsForCats()  {
-        List<WebElement> photos = SearchResultsPage.photosTopSixResults();
+        SearchResultsPage searchPage = new SearchResultsPage(driver);
+        List<WebElement> photos = searchPage.photosTopSixResults();
         if (photos.isEmpty()) {
             AssertJUnit.fail("No cat photos here!");
-        }
+        }S
         for (WebElement photo : photos) {
             AssertJUnit.assertTrue("No cats here!", photo.getAttribute("alt").toLowerCase().contains("cat"));
         }
