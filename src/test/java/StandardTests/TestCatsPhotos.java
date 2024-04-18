@@ -64,7 +64,7 @@ public class TestCatsPhotos {
         List<WebElement> photos = searchPage.photosTopSixResults();
         if (photos.isEmpty()) {
             AssertJUnit.fail("No cat photos here!");
-        }S
+        }
         for (WebElement photo : photos) {
             AssertJUnit.assertTrue("No cats here!", photo.getAttribute("alt").toLowerCase().contains("cat"));
         }
