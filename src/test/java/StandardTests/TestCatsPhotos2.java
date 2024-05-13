@@ -17,13 +17,14 @@ import setup.Browser;
 import setup.Chrome;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 public class TestCatsPhotos2 {
     public WebDriver driver;
 
     @BeforeTest
-    public void setup() throws IOException {
+    public void setup() throws IOException, URISyntaxException {
         ReadProperties properties = new ReadProperties();
         Browser chrome = new Chrome();
         chrome.addArguments(Arguments.readArguments());
