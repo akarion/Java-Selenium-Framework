@@ -17,19 +17,20 @@ import setup.Browser;
 import setup.Chrome;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 public class TestCatsPhotos {
     public WebDriver driver;
 
     @BeforeTest
-    public void setup() throws IOException {
+    public void setup() throws IOException, URISyntaxException {
         ReadProperties properties = new ReadProperties();
         Browser chrome = new Chrome();
         chrome.addArguments(Arguments.readArguments());
         chrome.disableAutomationInfobars();
-//        driver = chrome.launchRemoteBrowser(properties.getValue("browserURL"));
-        driver = chrome.launchBrowser();
+        driver = chrome.launchRemoteBrowser(properties.getValue("http://localhost:4444"));
+//        driver = chrome.launchBrowser();
         Resolution.maximize(driver);
 
     }
